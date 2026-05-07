@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <style type = "text/css">
+        body{font-family: 'Roboto', sans-serif;}
+        #output{display: block; border: 2px solid #000000; margin: 20px 0 10px 0; padding: 10px;
+                max-width: 300px; width: 90%;}
+    </style>
+    <meta charset="utf-8">
+    <title>Problem 6</title>
+</head>
+
+<body>
+    <h1>Problem 6</h1>
+
+    <select id="selectState" size="10"></select>
+
+    <input type="button" value="Add State" id="btnAddState">
+
+    <div id="output">
+        <ul id="stateList"></ul>
+    </div>
+
+    <input type="button" value="Clear States" id="btnClearStates">
+
+    
+    
+    <script>  
+        var states = ["Maine", "New Hampshire", "Vermont", "Massachusetts", "Connecticut", "Rhode Island",
+                        "New York", "Pennsylvania", "New Jersey", "Delaware"];
+
+        // Goes through the states array and populates the select element with all the states
+        for(i = 0; i < states.length; i++){
+            let opt = states[i];
+            let el = document.createElement("option");
+            el.text = opt;
+            el.value = opt;
+            selectState.add(el);
+        }
+
+        // Defaults to the first item in the select list
+        selectState.selectedIndex = 0;
+
+        // Adds the state as a list item to the div
+        function addState(){
+            document.getElementById("stateList").innerHTML += "<li>" + selectState.value + "</li>";
+        }
+
+        // Sets the text inside the div to an empty string
+        function clearStates(){
+            document.getElementById("stateList").innerHTML = "";
+        }
+
+        // Makes buttons work by calling the appropriate function
+        document.getElementById("btnAddState").onclick = addState;
+        document.getElementById("btnClearStates").onclick = clearStates;
+    </script>
+
+
+        
+</body>
+</html>

@@ -1,0 +1,65 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <style type = "text/css">
+        body{font-family: 'Roboto', sans-serif;}
+        #cryptoChoice{font-size: 20px; padding: 15px; margin: 25px;}
+        #priceBtn{font-size: 15px; padding: 15px;}
+        #priceBtn:hover{color: #ffffff; background-color: #000000;}
+        #result{font-size: 20px; border: 1px solid #000000; padding: 15px; 
+                margin: 20px 20px 20px 25px; display: block; width: fit-content;}
+
+    </style>
+    <meta charset="utf-8">
+    <title>Crypto Current Price Checker</title>
+    <script>
+        window.onload = function () {
+            document.getElementById("priceBtn").onclick = getPrice;
+        };
+
+        function getPrice(){
+            // Gets the crypto choice from the user and creates the url
+            var choice = document.getElementById("cryptoChoice").value;
+            var url = "https://api.coinbase.com/v2/prices/" + choice + "/spot";
+
+            //Sends a GET request with the crypto choice
+            var req = new XMLHttpRequest();
+            req.open("GET", url, true);
+
+            req.onreadystatechange = function() {
+                //only works if the request is complete and the file has loaded
+                if(req.readyState == 4 && req.status == 200){
+                    // Parses the JSON file and stores the amount and currency
+                    var parsedJSON = JSON.parse(this.responseText);
+                    var amount = parsedJSON.data.amount;
+                    var currency = parsedJSON.data.currency;
+
+                    document.getElementById("result").innerHTML = amount + " " + currency;
+                }
+            };
+
+            req.send();
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Crypto Current Price Checker</h1>
+    <select id = "cryptoChoice">
+        <option value="BTC-USD">Bitcoin</option>
+        <option value="ETH-USD">Ethereum</option>
+        <option value="SOL-USD">Solana</option>
+        <option value="XRP-USD">XRP</option>
+    </select>
+    <input type="button" value="Check Price" id="priceBtn">
+
+    <div id ="result">Price</div>
+
+</body>
+</html>

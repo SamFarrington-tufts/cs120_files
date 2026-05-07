@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <style type = "text/css">
+        body{font-family: 'Roboto', sans-serif;}
+    </style>
+    <meta charset="utf-8">
+    <title>Problem 4</title>
+</head>
+
+<body>
+    <h1>Problem 4</h1>
+    <div id="answer"></div>
+    <script>  
+        function speak(prefix){
+            //Gets the user input and stores it in a name var for the alert
+            let name = document.getElementById("username").value;
+            alert(prefix + " " + name);
+        }
+    </script>
+
+    <form name="form1">
+        <!--Gets user input-->
+        <label for="username">Name:</label><input type="text" name='username' id='username'>
+
+        <!--Buttons that call speak with the appropriate prefix-->
+        <input type="button" value="Hello" onclick="speak('Hello')">
+        <input type="button" value="Good Bye" onclick="speak('Good Bye')">
+        <input type="button" value="Greetings" onclick="speak('Greetings')">
+    </form>
+
+        
+</body>
+</html>

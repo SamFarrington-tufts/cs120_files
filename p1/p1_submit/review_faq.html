@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel='stylesheet' href='styles.css'>
+    <style type = "text/css">
+        #part ul{list-style-type: none;}
+        #part ul li{font-size: 20px; display: inline-block;}
+
+        h1{text-align: center; font-size: 70px; font-weight: 700; padding: 40px 24px;}
+        #review_page p{font-size: 20px;}
+
+        /*Creates a box for the rev content*/
+        #rev_1{width: 100%; box-sizing: border-box; padding: 50px 20px; display: flex; 
+               align-items: center; gap: 24px;}
+        /*Sets width and text alingment of the rev*/
+        #rev_1 .rev{width: 40%; text-align: left; margin-left: 70px; }
+        /*Sets width and of the picture and shifts it to the right*/
+        #rev_1 .pic{width: 30%; margin-left: 15%;}
+        /*Sets the max height of the image to 400px, while maintaining the aspect ratio when
+        shrinking the browser window*/
+        #rev_1 .pic img{width: 100%; height: auto; max-height: 400px;}
+
+        /*Creates a box for the content with a black background and sets font color to white*/
+        #rev_2{width: 100%; box-sizing: border-box; padding: 90px 20px; display: flex;
+               align-items: center; gap: 24px; background-color: #000000; color: #ffffff; }
+        /*Sets width and text alingment of the rev. Also shifts to the right*/
+        #rev_2 .rev{width: 40%; text-align: left; margin-left: 15%;}
+        /*Sets width and of the picture*/
+        #rev_2 .pic{width: 30%; margin-right: 0;}
+        /*Sets the max height of the image to 400px, while maintaining the aspect ratio when
+        shrinking the browser window*/
+        #rev_2 .pic img{width: 100%; height: auto; max-height: 400px;}
+
+        /*FAQ accordion boxes for simple questions*/
+        #faq details{border: 2px solid #000000; padding: 14px 16px; margin: 16px auto;
+                    max-width: 800px; width: 90%;}
+        #faq summary{font-size: 24px;}
+        #faq p{font-size: 18px;}
+
+        /*faq link button sizing and border*/
+        #faq a{display: inline-block; text-align: center; border: 2px solid #000000;
+               padding: 10px 14px; color: #000000; font-size: 20px; margin: 24px 0;}
+        #faq .bttn a{text-decoration: none;}
+        /*adds margin above faq button and centers the text*/
+        #faq .bttn{text-align: center; margin-top: 30px;}
+        /*hover effect for faq button*/
+        #faq .bttn a:hover{background-color: #000000; color: #ffffff; text-decoration: underline;}
+
+        /*Shrinks the font size and stacks the text below the images when 
+        the browser window is too small. Also reduces the font size of faq section*/
+        @media(max-width:830px){
+            #rev_1, #rev_2 {display: block; padding: 40px 20px;}
+            #rev_1 .pic, #rev_2 .pic, #rev_1 .bio, #rev_2 .bio{width: 90%; display: block;}
+            #review_page h2{font-size: 20px;}
+            #review_page p{font-size: 15px;}
+            #review_page .rev{text-align: center; width: 70%; margin: 0 auto;}
+            #review_page .pic{width: 90%; margin: 0 auto; text-align: center;}
+            #review_page img{display: block; margin: 0 auto; width: 70%; 
+                          max-width: 300px; height: auto;}
+            #faq h2{font-size: 40px !important;}
+            #faq summary{font-size: 18px;}
+            #faq p{font-size: 14px;}
+        }
+    </style>
+    <title>Reviews and FAQs</title>
+</head>
+
+<body>
+    <main>
+        <div id = "nav">
+            <ul>
+                <li class = 'logo'><a href = 'home.html'>OneCityBlock</a></li>
+                <li><a href = 'about.html'>About Us</a></li>
+                <li><a href = 'setlist.html'>Setlist</a></li>
+                <li><a href = 'packages.html'>Packages</a></li>
+                <li><a href = 'review_faq.html'>Reviews and FAQs</a></li>
+                <li><a href = 'contact.html'>Contact Us</a></li>
+            </ul>
+        </div>
+
+        <div id="mobile_menu">
+            <div class="hamburger_icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div id = "mobile_nav">
+                <ul>
+                    <li class = 'logo'><a href = 'home.html'>OneCityBlock</a></li>
+                    <li><a href = 'about.html'>About Us</a></li>
+                    <li><a href = 'setlist.html'>Setlist</a></li>
+                    <li><a href = 'packages.html'>Packages</a></li>
+                    <li><a href = 'review_faq.html'>Reviews and FAQs</a></li>
+                    <li><a href = 'contact.html'>Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <h1>Reviews and FAQs</h1>
+
+        <div id="review_page">
+            <div id="rev_1">
+                <div class="pic">
+                    <img src="wed_rev.jpg" alt="wed_pic" width="494" height="330">
+                </div>
+
+                <div class="rev">
+                    <h2>Mia & Jordan, Bride & Groom</h2>
+                    <p>“Booking OneCityBlock was honestly the easiest part of planning 
+                        our wedding. They were super responsive, helped us pick a setlist 
+                        that fit our vibe, and were flexible with timing. Setup was smooth 
+                        and stress-free. By the time guests arrived, everything sounded 
+                        perfect. Once the music started, the dance floor never emptied, and 
+                        they did an amazing job keeping the energy up all night. We had so 
+                        many guests ask for their name before the reception was even over.”</p>
+                </div>
+            </div>
+
+            <div id="rev_2">
+                <div class="rev">
+                    <h2>The Harbor Room, Owner</h2>
+                    <p>“OneCityBlock was exactly what we want for live music nights—professional, 
+                        punctual, and easy to work with. They set up quickly and kept the volume 
+                        at that perfect level where people can still talk, but the room feels alive. 
+                        The song choices were spot-on for dinner and drinks, and the energy built 
+                        naturally as the night went on. Our guests stayed longer, ordered more, 
+                        and the feedback was fantastic. We're already looking at dates to bring them back.”</p>
+                </div>
+
+                <div class="pic">
+                    <img src="rest_rev.jpg" alt="rest_pic" width="494" height="330">
+                </div>
+            </div>
+        </div>
+
+        <div id="faq">
+            <h2 style="font-size: 70px; text-align: center;">Commonly Asked Questions</h2>
+            <details>
+                <summary>How far in advance should we book?</summary>
+                <p>We recommend reaching out 4-8 weeks ahead, especially for weekends and peak seasons.</p>
+            </details>
+
+            <details>
+                <summary>Do you take song requests?</summary>
+                <p>Yes! We can take requests in advance and, when possible, during the event.</p>
+            </details>
+
+            <details>
+                <summary>What do you need from the venue?</summary>
+                <p>We typically just need a standard power outlet and a small performance area. 
+                    We'll coordinate setup details with you ahead of time.</p>
+            </details>
+
+            <details>
+                <summary>Can you learn a special song for our event?</summary>
+                <p>Yes-if you send it early enough, we can usually learn one special request.</p>
+            </details>
+
+            <details>
+                <summary>How long is setup and breakdown?</summary>
+                <p>Setup usually takes about 45 to 90 minutes depending on the package and space. 
+                    Breakdown is quick and we keep it low-impact for the venue.</p>
+            </details>
+
+            <div class="bttn">
+                    <a href="contact.html">Still Have Questions?</a>
+            </div>
+        </div>
+
+
+    </main>
+
+    <div id="footer">
+        <h3>OneCityBlock</h3>
+        <p>1 Ludlow Street <br /> New York, NY</p>
+        <p>
+            <a href="mailto:onecityblock@gmail.com">onecityblock@gmail.com</a> 
+            <a href="tel:12125550147">(212) 555-0147</a>
+        </p>
+    </div>
+
+</body>
+</html>

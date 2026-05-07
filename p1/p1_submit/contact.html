@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel='stylesheet' href='styles.css'>
+    <style type = "text/css">
+        #part ul{list-style-type: none;}
+        #part ul li{font-size: 20px; display: inline-block;}
+        h1{text-align: center; font-size: 70px; font-weight: 700; padding: 40px 24px;}
+        /*Centers the greeting to the user and sets a minimum width*/
+        #user_form p{text-align: center; font-size: 20px; max-width: 800px; width: 90%; margin: 0 auto 30px;}
+        /*Centers, outlines, and formats the form for the user to fill out*/
+        #user_form form{text-align: left; border: 2px solid #000000; 
+                        padding: 22px; max-width: 700px; width: 90%; margin: 0 auto 60px; box-sizing: border-box;}
+        /*Form font customization*/
+        #user_form label{display: block; margin: 4px; font-weight: 500;}
+        /*Centers submit button*/
+        #user_form .submit{text-align: center;}
+        /*Submit button customization*/
+        #user_form .submit input[type="submit"] {font-size: 16px;}
+        #user_form .submit input[type="submit"]:hover{background-color: #000000; color: #ffffff;}
+        /*Makes the form input fields fit the box*/
+        #user_form textarea, input, select{width: 100%; padding: 10px; box-sizing: border-box;}
+
+    </style>
+    <meta charset="utf-8">
+    <title>Contact Us</title>
+</head>
+
+<body>
+    <main>
+        <div id = "nav">
+            <ul>
+                <li class = 'logo'><a href = 'home.html'>OneCityBlock</a></li>
+                <li><a href = 'about.html'>About Us</a></li>
+                <li><a href = 'setlist.html'>Setlist</a></li>
+                <li><a href = 'packages.html'>Packages</a></li>
+                <li><a href = 'review_faq.html'>Reviews and FAQs</a></li>
+                <li><a href = 'contact.html'>Contact Us</a></li>
+            </ul>
+        </div>
+
+        <div id="mobile_menu">
+            <div class="hamburger_icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div id = "mobile_nav">
+                <ul>
+                    <li class = 'logo'><a href = 'home.html'>OneCityBlock</a></li>
+                    <li><a href = 'about.html'>About Us</a></li>
+                    <li><a href = 'setlist.html'>Setlist</a></li>
+                    <li><a href = 'packages.html'>Packages</a></li>
+                    <li><a href = 'review_faq.html'>Reviews and FAQs</a></li>
+                    <li><a href = 'contact.html'>Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <h1>Contact Us</h1>
+        <div id="user_form">
+            <p>Tell us a little about your event and we'll take it from there! 
+           Please include your contact info, event date, and location/venue. 
+           If you have any song requests, special moments (first dance, entrances, 
+           announcements), or vibe preferences, add them in your message.</p>
+
+           <form action = '#' method='get'>
+                <label for="first_name">First Name:</label><input type="text" name='first_name' id='first_name'> 
+                <label for="last_name">Last Name:</label><input type="text" name='last_name' id='last_name'> 
+                <label for="user_email">Email:</label><input type="email" name='email' id='user_email'> 
+                <label for="user_phone">Phone:</label><input type="tel" name='phone' id='user_phone'>
+                <label for="event_date">Event Date:</label><input type="date" name='event_date' id='event_date'>
+                <label for="event_venue">Venue:</label><input type="text" name='event_venue' id='event_venue'>
+                <label for="event_city">Event City:</label><input type="text" name='event_city' id='event_city'> 
+                <label for="user_state">State:</label>
+                    <select name="user_state" id="user_state">
+                    <option value="new_jersey">New Jersey</option>
+                    <option value="new_york">New York</option>
+                    <option value="pennsylvania">Pennsylvania</option>
+                    <option value="delaware">Delaware</option>
+                    <option value="connecticut">Connecticut</option>
+                    <option value="maryland">Maryland</option></select>
+                   
+                <label for="package_option">Package:</label>
+                    <select name="package_option" id="package_option">
+                    <option value="classic">Classic</option>
+                    <option value="premium">Premium</option>
+                    </select>
+
+                <label for="user_text">Additional Info:</label>
+                <textarea name="user_text" id="user_text" rows="8"></textarea>
+                <div class="submit"><input type="submit" value="Submit"></div>
+            </form>
+        </div>
+    </main>
+
+    <div id="footer">
+        <h3>OneCityBlock</h3>
+        <p>1 Ludlow Street <br /> New York, NY</p>
+        <p>
+            <a href="mailto:onecityblock@gmail.com">onecityblock@gmail.com</a> 
+            <a href="tel:12125550147">(212) 555-0147</a>
+        </p>
+    </div>
+
+</body>
+</html>

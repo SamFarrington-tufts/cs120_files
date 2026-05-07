@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <style type = "text/css">
+        body{font-family: 'Roboto', sans-serif;}
+    </style>
+    <meta charset="utf-8">
+    <title>Problem 4</title>
+</head>
+
+<body>
+    <h1>Problem 4</h1>
+    
+    <script>
+        var num1 = parseInt(prompt("Enter a first number:"));
+        var num2 = parseInt(prompt("Enter a second number:"));
+        let sum = 0;
+        
+        if(num1 > num2){
+            temp = num1;
+            num1 = num2;
+            num2 = temp;
+        }
+
+        document.write("The odd numbers from " + num1 + " to " + num2 + " are: ");
+
+        for(i = num1; i <= num2; i++){
+            if(i % 2 != 0){
+                document.write(i + " ");
+            }
+            sum += i;
+        }
+
+        document.write("<br/>");
+        document.write("The sum of all numbers in the range of " + num1 + " to " + num2 + " is: " + sum);
+
+    </script>
+
+
+</body>
+</html>

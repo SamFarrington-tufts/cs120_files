@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <style type = "text/css">
+        body{font-family: 'Roboto', sans-serif;}
+    </style>
+    <meta charset="utf-8">
+    <title>Problem 2</title>
+</head>
+
+<body>
+    <h1>Problem 2</h1>
+    
+    <script>
+        inputTempF = parseInt(prompt("Enter a temperature in Fahrenheit:"));
+        convertToCelsius = (inputTempF - 32) * (5/9);
+        alert(inputTempF + " Fahrenheit is " + convertToCelsius + " Celsius");
+
+        inputTempC = parseInt(prompt("Enter a temperature in Celsius:"));
+        convertToFahrenheit = (inputTempC *(9/5)) + 32;
+        alert(inputTempC + " Celsius is " + convertToFahrenheit + " Fahrenheit");
+
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel='stylesheet' href='styles.css'>
+    <style type = "text/css">
+        /*Sets font size for all h2*/
+        h2{font-size: 40px;}
+        /*Centers the hero*/
+        #hero{text-align: center; padding: 80px 24px;}
+        /*Sets font size and weight of the hero*/
+        #hero h1{margin: 0; font-size: 90px; font-weight: 700}
+        /*Font size of hero subtext*/
+        #hero p{font-size: 20px;}
+        /*Background image for hero and about us section*/
+        .top_bg{background-image: url(city.jpg); background-size: 100% 100%; 
+             background-repeat: no-repeat; background-position: 0 100%;
+            min-height: 100vh; color: #ffffff}
+        
+        /*band picture sizing*/
+        #band_pic{width: 100%; padding: 30px; text-align: center; box-sizing: border-box;}
+        /*Sets about us text and band picture adjacent to each other*/
+        #band_pic .pic, #band_pic .about{display: inline-block; vertical-align: top;
+                                        box-sizing: border-box;}
+        /*band pic sizing on page*/
+        #band_pic .pic{width: 40%; margin-left: 60px;}
+        /*maintains image size ratio*/
+        #band_pic .pic img{width: 100%; height: auto;}
+        /*about us section sizing on page*/
+        #band_pic .about{width: 40%; padding-left: 40px; text-align: left; color:#ffffff}
+        /*Left aligns about us button*/
+        #band_pic .bttn{text-align: left; margin-top: 30px;}
+        /*creates a border that fits the text inside*/
+        #band_pic .bttn a{display: inline-block; text-align: center; border: 2px solid #ffffff;
+                        padding: 10px 14px; color: #ffffff; text-decoration: none;}
+        /*hover effect for about us button*/
+        #band_pic .bttn a:hover{background-color: #ffffff; color: #000000; text-decoration: underline;}
+
+    
+        /*background for setlist*/
+        #setlist{background-color: #000000; color: #ffffff; padding: 90px 20px;}
+        /*centers setlist h2*/
+        #setlist h2{text-align: center; }
+        /*centers table*/
+        #setlist table{margin: 0 auto; font-size: 25px; border-spacing: 90px 10px;}
+        /*spacing for table cells*/
+        #setlist th{padding: 12px 6px;}
+        /*centers setlist button and adds a 30px margin above it*/
+        #setlist .bttn{text-align: center; margin-top: 30px;}
+        /*creates a border that fits the text inside*/
+        #setlist .bttn a{display: inline-block; text-align: center; border: 2px solid #ffffff;
+                        padding: 10px 14px; color: #ffffff; text-decoration: none;}
+        /*hover effect for setlist button*/
+        #setlist .bttn a:hover{background-color: #ffffff; color: #000000; text-decoration: underline;}
+
+        /*centers text and adds padding to the packages section*/
+        #packages{text-align: center; padding: 90px 20px;}
+
+        /*displays two package options adjacent to eachother, with borders around each*/
+        #packages .pack1, #packages .pack2{display: inline-block; vertical-align: top; width: 25%; 
+                                           text-align: left; border: 2px solid #000000; padding: 15px;
+                                           margin: 20px 60px;} 
+        /*package font sizing for h3*/
+        .pack1 h3, .pack2 h3{font-size: 28px;}
+        /*package font sizing for package descriptions*/
+        .pack1 p, .pack2 p{font-size: 18px;}
+        /*package link button sizing and border*/
+        .pack1 a, .pack2 a{display: inline-block; text-align: center; border: 2px solid #000000;
+                           padding: 10px 14px; color: #000000;}
+        /*spacing between package bullet points*/
+        .pack1 li, .pack2 li{margin: 10px 0;}
+        /*spacing around package lists*/
+        .pack1 ul, .pack2 ul{margin: 20px 0;}
+        /*removes underline from link*/
+        #packages .bttn a{text-decoration: none;}
+        /*adds margin above package button and centers the text*/
+        #packages .bttn{text-align: center; margin-top: 30px;}
+        /*hover effect for packages button*/
+        #packages .bttn a:hover{background-color: #000000; color: #ffffff; text-decoration: underline;}
+
+        /*background for reviews*/
+        #reviews{background-color: #000000; color: #ffffff; padding: 90px 20px;}
+        /*centers section label*/
+        #reviews h2{text-align: center;}
+        /*quote font size*/
+        #reviews .quote{font-size: 20px;}
+        /*name font size*/
+        #reviews .name{font-size: 16px;}
+        /*puts a white box around the review and staggers with other reviews*/
+        #reviews .review_1{margin-left: 15%; border: 2px solid #ffffff; display: inline-block;
+                           padding: 10px 14px; margin-bottom: 20px;}
+        /*puts a white box around the review and staggers with other reviews*/
+        #reviews .review_2{margin-left: 55%; border: 2px solid #ffffff; display: inline-block;
+                           padding: 10px 14px; margin-bottom: 20px;}
+        /*puts a white box around the review and staggers with other reviews*/
+        #reviews .review_3{margin-left: 15%; border: 2px solid #ffffff; display: inline-block;
+                           padding: 10px 14px; margin-bottom: 20px;}
+        /*centers the button and adds a 30px margin above it*/
+        #reviews .bttn{text-align: center; margin-top: 30px;}
+        /*creates a border that fits the text inside*/
+        #reviews .bttn a{display: inline-block; text-align: center; border: 2px solid #ffffff;
+                        padding: 10px 14px; color: #ffffff; text-decoration: none;}
+        /*hover effect for review button*/
+        #reviews .bttn a:hover{background-color: #ffffff; color: #000000; text-decoration: underline;}
+
+        /*background for contact*/
+        #contact{background-color: #ffffff; color: #000000; padding: 90px 20px;}
+        /*centers content section text*/
+        #contact{text-align: center;}
+        /*content section font size*/
+        #contact p{font-size: 20px;}
+        /*centers the button and adds a 30px margin above it*/
+        #contact .bttn{text-align: center; margin-top: 30px;}
+        /*creates a border that fits the text inside*/
+        #contact .bttn a{display: inline-block; text-align: center; border: 2px solid #000000;
+                        padding: 10px 14px; color: #000000; text-decoration: none;}
+        /*hover effect for review button*/
+        #contact .bttn a:hover{background-color: #000000; color: #ffffff; text-decoration: underline;}
+
+        /*Shrinks the font size to prevent any text from hanging off the screen when 
+        the browser window is too small*/
+        @media(max-width:830px){
+            #hero h1{font-size: 70px;}
+            #band_pic .about h2{font-size: 25px;}
+            #band_pic .about p{font-size: 15px !important;}
+            #band_pic .pic, #band_pic .about{display: block; width: 100%; margin: 20px;}
+            #setlist table{font-size: 14px; border-spacing: 20px 10px};
+            #packages{display: block;}
+            #packages .pack1, #packages .pack2{display: block; width: 90%; margin: 20px auto;}
+        }
+        
+
+    </style>
+
+    <title>OneCityBlock</title>
+</head>
+
+<body>
+    <main>
+        <div class = "top_bg">
+            <div id = "nav">
+                <ul>
+                    <li class = 'logo'><a href = 'home.html'>OneCityBlock</a></li>
+                    <li><a href = 'about.html'>About Us</a></li>
+                    <li><a href = 'setlist.html'>Setlist</a></li>
+                    <li><a href = 'packages.html'>Packages</a></li>
+                    <li><a href = 'review_faq.html'>Reviews and FAQs</a></li>
+                    <li><a href = 'contact.html'>Contact Us</a></li>
+                </ul>
+            </div>
+
+            <div id="mobile_menu">
+                <div class="hamburger_icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+                <div id = "mobile_nav">
+                    <ul>
+                        <li class = 'logo'><a href = 'home.html'>OneCityBlock</a></li>
+                        <li><a href = 'about.html'>About Us</a></li>
+                        <li><a href = 'setlist.html'>Setlist</a></li>
+                        <li><a href = 'packages.html'>Packages</a></li>
+                        <li><a href = 'review_faq.html'>Reviews and FAQs</a></li>
+                        <li><a href = 'contact.html'>Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div id = 'hero'>
+                <h1>OneCityBlock</h1>
+                <p>Your songs. Your night. Our band.</p>
+            </div>
+
+            <div id = 'band_pic'>
+                <div class="about">
+                    <h2>About OneCityBlock</h2>
+                    <p style="font-size: 30px; font-weight: 400;">OneCityBlock is a professional cover band perfect for parties, 
+                    pubs/restaurants, and corporate events. We play pop and rock 
+                    favorites from the 80s through today. Booking is simple, 
+                    communication is fast, and we show up ready.<br />
+                    <div class="bttn">
+                        <a href = 'about.html'>Learn More About Us</a>
+                    </div>
+                </div>
+
+                <div class="pic">
+                    <img src="band_1.jpg" alt="OneCityBlock performing" width="800" height="600">
+                </div>
+            </div>
+        </div>
+
+        <div id ='setlist'>
+            <h2>Sneak Peak Into The Setlist</h2>
+            <table>
+                <tr>
+                    <th>80s/90s</th>
+                    <th>2000s</th>
+                    <th>2010-Now</th>
+                </tr>
+                <tr>
+                    <th>Don't Stop Believin' - Journey</th>
+                    <th>Mr. Brightside - The Killers</th>
+                    <th>Uptown Funk - Bruno Mars</th>
+                </tr>
+                <tr>
+                    <th>Sweet Child O' Mine - Guns N' Roses</th>
+                    <th>Stacy's Mom - Fountains of Wayne</th>
+                    <th>Levitating - Dua Lipa</th>
+                </tr>
+                <tr>
+                    <th>Livin' on a Prayer - Bon Jovi</th>
+                    <th>I Gotta Feeling - The Black Eyed Peas</th>
+                    <th>Shut Up and Dance - WALK THE MOON</th>
+                </tr>
+            </table>
+            <div class="bttn">
+                <a href="setlist.html">View Setlist</a>
+            </div>
+        </div>
+
+        <div id="packages">
+            <h2>Packages</h2>
+            <div class="pack1">
+                <h3>Classic</h3>
+                <p>Perfect for pubs/restaurants and smaller events.</p>
+                <ul>
+                    <li>2-3 hour set</li>
+                    <li>Pop/rock hits (80s-now)</li>
+                    <li>Basic sound setup</li>
+                </ul>
+                <div class="bttn">
+                    <a href="packages.html">View Package</a>
+                </div>
+            </div>
+
+            <div class="pack2">
+                <h3>Premium</h3>
+                <p>Best for weddings, corporate events, and big nights.</p>
+                <ul>
+                    <li>3-4 hour set</li>
+                    <li>MC + announcements</li>
+                    <li>Full sound + lighting</li>
+                </ul>
+                <div class="bttn">
+                    <a href="packages.html">View Package</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="reviews">
+            <h2>What People Say</h2>
+            <div class="review_1">
+                <p class="quote">"They absolutely crushed it. The dance floor was packed all night."</p>
+                <p class="name">- Sarah M.</p>
+            </div>
+            <div class="review_2">
+                <p class="quote">"Super professional, easy to book, and the setlist was perfect."</p>
+                <p class="name">- Mike M.</p>
+            </div>
+            <div class="review_3">
+                <p class="quote">"Best cover band we've had here. We're booking them again."</p>
+                <p class="name">- The Anchor Pub</p>
+            </div>
+            <div class="bttn">
+                <a href="review_faq.html">More Reviews and FAQs</a>
+            </div>
+        </div>
+
+        <div id="contact">
+            <h2>Contact Us</h2>
+            <p>If you're ready to book or have any additional questions, we'd love to hear from you.</p>
+
+            <div class="bttn">
+                <a href="contact.html">Contact Us</a>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer">
+        <h3>OneCityBlock</h3>
+        <p>1 Ludlow Street <br /> New York, NY</p>
+        <p>
+            <a href="mailto:onecityblock@gmail.com">onecityblock@gmail.com</a> 
+            <a href="tel:12125550147">(212) 555-0147</a>
+        </p>
+    </div>
+    
+
+</body>
+</html>

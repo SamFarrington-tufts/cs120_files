@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <style type = "text/css">
+        body{font-family: 'Roboto', sans-serif;}
+    </style>
+    <meta charset="utf-8">
+    <title>Problem 3</title>
+</head>
+
+<body>
+    <h1>Problem 3</h1>
+    <div id="answer"></div>
+    <script>  
+
+        // Creates a string with names seperated by a comma
+        let names = "Pat, Chris, Marlon, Ferncroft, Assunta";
+        
+        //Creates a string to hold the ordered list form names
+        let list_names = "<ol>" + names.split(", ").map(i => "<li>" + i + "</li>").join("") + "</ol>";
+        
+        document.getElementById("answer").innerHTML = list_names;
+    </script>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <style type = "text/css">
+        body{font-family: 'Roboto', sans-serif;}
+        #output{display: block; border: 2px solid #000000; margin: 20px 0 10px 0; padding: 10px;
+                max-width: 300px; width: 90%;}
+    </style>
+    <meta charset="utf-8">
+    <title>Extra Credit</title>
+</head>
+
+<body>
+    <h1>Extra Credit</h1>
+
+    <select id="selectState" size="10"></select>
+
+    <input type="button" value="Add State" id="btnAddState">
+
+    <div id="output">
+        <ol id="stateList"></ol>
+    </div>
+
+    <input type="button" value="Clear States" id="btnClearStates">
+
+    
+    
+    <script>  
+        var states = ["Maine", "New Hampshire", "Vermont", "Massachusetts", "Connecticut", "Rhode Island",
+                        "New York", "Pennsylvania", "New Jersey", "Delaware"];
+
+        // Goes through the states array and populates the select element with all the states
+        for(i = 0; i < states.length; i++){
+            let opt = states[i];
+            let el = document.createElement("option");
+            el.text = opt;
+            el.value = opt;
+            selectState.add(el);
+        }
+
+        // Defaults to the first item in the select list
+        selectState.selectedIndex = 0;
+
+        // Adds the state as a list item to the div
+        function addState(){
+            document.getElementById("stateList").innerHTML += "<li>" + selectState.value + "</li>";
+
+            // Removes the selcted state from the select element and defaults the
+            // selected index to the first option in the list
+            selectState.remove(selectState.selectedIndex);
+            selectState.selectedIndex = 0;
+        }
+
+        // Sets the text inside the div to an empty string
+        function clearStates(){
+            document.getElementById("stateList").innerHTML = "";
+
+            // Sets the options length of the selectState select element to 0 to allow
+            // for correct restoration of the list
+            selectState.options.length = 0;
+
+            // Goes through the states array and populates the select element with all the states
+            for(var i = 0; i < states.length; i++){
+                var opt = states[i];
+                var el = document.createElement("option");
+                el.text = opt;
+                el.value = opt;
+                selectState.add(el);
+            }
+            selectState.selectedIndex = 0;
+        }
+
+        // Makes buttons work by calling the appropriate function
+        document.getElementById("btnAddState").onclick = addState;
+        document.getElementById("btnClearStates").onclick = clearStates;
+    </script>
+
+
+        
+</body>
+</html>

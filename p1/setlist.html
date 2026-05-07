@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <link rel='stylesheet' href='styles.css'>
+    <style type = "text/css">
+        #part ul{list-style-type: none;}
+        #part ul li{font-size: 20px; display: inline-block;}
+        h1{text-align: center; font-size: 70px; font-weight: 700; padding: 40px 24px;}
+        h2{text-align: center; font-size: 40px;}
+         /*background for setlist*/
+        #setlist_page{background-color: #000000; color: #ffffff; padding: 10px 20px;}
+        /*centers table*/
+        #setlist_page table{margin: 0 auto; font-size: 25px; border-spacing: 90px 10px;}
+        /*spacing for table cells*/
+        #setlist_page th{padding: 12px 6px;}
+        /*centers setlist button and adds a 30px margin above it*/
+        #setlist_page .bttn{text-align: center; margin-top: 30px;}
+        /*creates a border that fits the text inside*/
+        #setlist_page .bttn a{display: inline-block; text-align: center; border: 2px solid #ffffff;
+                        padding: 10px 14px; color: #ffffff; text-decoration: none;}
+        /*hover effect for setlist button*/
+        #setlist_page .bttn a:hover{background-color: #ffffff; color: #000000; text-decoration: underline;}
+        .the80s, .the2000s, .the2010-now{padding: 40px 20px;}
+
+        /*Shrinks font size of the songs and the border spacing of the table cell when the
+        browser size is small*/
+        @media(max-width:830px){
+            #setlist_page table{font-size: 14px; border-spacing: 20px 10px};
+        }
+
+    </style>
+    <meta charset="utf-8">
+    <title>Setlist</title>
+</head>
+
+<body>
+    <main>
+        <div id = "nav">
+            <ul>
+                <li class = 'logo'><a href = 'home.html'>OneCityBlock</a></li>
+                <li><a href = 'about.html'>About Us</a></li>
+                <li><a href = 'setlist.html'>Setlist</a></li>
+                <li><a href = 'packages.html'>Packages</a></li>
+                <li><a href = 'review_faq.html'>Reviews and FAQs</a></li>
+                <li><a href = 'contact.html'>Contact Us</a></li>
+            </ul>
+        </div>
+
+        <div id="mobile_menu">
+            <div class="hamburger_icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <div id = "mobile_nav">
+                <ul>
+                    <li class = 'logo'><a href = 'home.html'>OneCityBlock</a></li>
+                    <li><a href = 'about.html'>About Us</a></li>
+                    <li><a href = 'setlist.html'>Setlist</a></li>
+                    <li><a href = 'packages.html'>Packages</a></li>
+                    <li><a href = 'review_faq.html'>Reviews and FAQs</a></li>
+                    <li><a href = 'contact.html'>Contact Us</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <h1>Setlist</h1>
+
+        <div id ='setlist_page'>
+            <div class="the80s">
+                <h2>80s/90s</h2>
+                <table>
+                    <tr>
+                        <th>Don't Stop Believin' - Journey</th>
+                        <th>Sweet Child O' Mine - Guns N' Roses</th>
+                        <th>Livin' on a Prayer - Bon Jovi</th>
+                    </tr>
+                    <tr>
+                        <th>Take On Me - a-ha</th>
+                        <th>I Wanna Dance with Somebody - Whitney Houston</th>
+                        <th>Billie Jean - Michael Jackson</th>
+                    </tr>
+                    <tr>
+                        <th>Smells Like Teen Spirit - Nirvana</th>
+                        <th>Enter Sandman - Metallica</th>
+                        <th>Wonderwall - Oasis</th>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="the2000s">
+                <h2>2000s</h2>
+                <table>
+                    <tr>
+                        <th>Mr. Brightside - The Killers</th>
+                        <th>Seven Nation Army - The White Stripes</th>
+                        <th>Mr. Jones - Counting Crows</th>
+                    </tr>
+                    <tr>
+                        <th>Sugar, We're Goin Down - Fall Out Boy</th>
+                        <th>Boulevard of Broken Dreams - Green Day</th>
+                        <th>Hey There Delilah - Plain White T's</th>
+                    </tr>
+                    <tr>
+                        <th>Stacy's Mom - Fountains of Wayne</th>
+                        <th>I Gotta Feeling - The Black Eyed Peas</th>
+                        <th>Hey Ya! - OutKast</th>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="the2010-now">
+                <h2>2010-Now</h2>
+                <table>
+                    <tr>
+                        <th>Can't Stop the Feeling! - Justin Timberlake</th>
+                        <th>Blinding Lights - The Weeknd</th>
+                        <th>Wake Me Up - Avicii</th>
+                    </tr>
+                    <tr>
+                        <th>As It Was - Harry Styles</th>
+                        <th>Shape of You - Ed Sheeran</th>
+                        <th>Dance Monkey - Tones and I</th>
+                    </tr>
+                    <tr>
+                        <th>Uptown Funk - Bruno Mars</th>
+                        <th>Levitating - Dua Lipa</th>
+                        <th>Shut Up and Dance - WALK THE MOON</th>
+                    </tr>
+                </table>
+            </div>
+
+            <div class="bttn">
+                <a href="contact.html">Request a Song</a>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer">
+        <h3>OneCityBlock</h3>
+        <p>1 Ludlow Street <br /> New York, NY</p>
+        <p>
+            <a href="mailto:onecityblock@gmail.com">onecityblock@gmail.com</a> 
+            <a href="tel:12125550147">(212) 555-0147</a>
+        </p>
+    </div>
+</body>
+</html>

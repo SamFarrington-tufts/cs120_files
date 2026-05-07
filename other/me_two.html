@@ -1,0 +1,164 @@
+<!doctype html>
+<html>
+
+<head>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <style type = "text/css">
+    /*Sets everything contained within the body to Roboto font*/
+    body{font-family: 'Roboto', sans-serif;}
+
+    /*Sets the color and font of every h1 and h2, with 30px margins below*/
+    h1,h2 {color: #d68e6c; font-size: 30px; margin-bottom: 30px;}
+
+    /*Puts a 2px border around the list and centers the list on the page*/
+    ul{border: 2px solid #000000; padding: 20px; width: 100px; margin: 0 auto;}
+
+    /*Puts a black background image behind the food image with 50px padding on every side*/
+    #fav_food{background-image: url(blank_black.jpg);
+              background-size: cover; background-position: 0 100%;
+              height: auto; width: auto; padding: 50px; box-sizing: border-box;}
+    
+    /*Sets the food image and explanatory text adjacent to one another*/
+    #fav_food, #content {display: inline-block; vertical-align: top;}
+
+    /*Gives color rules to alternating rows of the table*/
+    tr:nth-child(even){background-color: #d89d1d6e;}
+    tr:nth-child(odd){background-color: #d68e6c;}
+
+    /*Sets a 15px margin below every element in the form*/
+    .field{margin-bottom: 15px;}
+
+    /*Sets the labels of the form to be adjacent to the elements, and right aligns the text*/
+    label{width: 100px; display: inline-block; text-align: right;}
+
+    /*Sets the icons at the top right of the page in a fixed position with 100px padding
+      from the top and 35px padding from the right of the page*/
+    #icons{position: fixed; top: 0; right: 0; padding-top: 100px; padding-right: 35px; 
+           display: inline-block;}
+
+  </style>
+
+  <title>Me Two</title>
+
+</head>
+
+<body>
+  <h1>Samuel Farrington</h1>
+
+    <div id = "icons">
+    <a href="https://x.com/"> <img src='twitter.jpg' width ='65'> </a>
+    <a href="https://www.facebook.com/"> <img src='facebook.jpg' width ='65'> </a>
+  </div>
+
+  <h2>Trip Section</h2>
+  <p>Last summer I visited Puerto Rico for the first time with my family. On our first night we <br />
+    stopped into a restaurant to grab a bite to eat and ended up starring in a commercial for <br />
+    the restaurant! There was a camera crew there that day and they saw us enjoying the food. <br />
+    It was so fun and such a great story! We spent a day driving into the very scenic El Yunque <br />
+    National Forest located in the Luquillo Mountains where we saw waterfalls and did some hiking. <br />
+    As an excursion we decided to take a catamaran adventure to snorkel and visit private beaches. <br />
+    During the snorkeling adventure a shark swam right below us, which has sparked my interest in <br />
+    scuba diving/free diving. From start to finish it was truly an unforgettable trip and I wish <br />
+    I could do it all over again.<br /></p>
+  
+  <h2>Favorite Pet Names:</h2>
+  <p>
+  <ul>
+    <li>Penelope the Dog</li>
+    <li>Luna the Cat</li>
+    <li>Oreo the Cat</li>
+  </ul>
+  </p>
+  
+  <h2>Favorite Restaurant:</h2>
+    <p>My favorite restaurant is <a href="https://www.baysideamericancafe.com/">Bayside American Cafe</a>, located in Portland, ME. Not only is it <br />
+    one of my favorite places to eat, it is also the restaurant where I fell in love with my <br />
+    girlfriend. After school ended in high school, her and I would drive down and spend hours <br />
+    talking over cinnamon bun pancakes. As silly as it sounds, nine years later those pancakes <br />
+    are still my favorite. 
+  </p>
+  
+  <h2>Favorite Food:</h2>
+    <div id="fav_food"> <img src='soup.jpeg' align='left' width ='500'> </div>
+    <div id="content"> My recent obsession is trying new recipes I find on social media. Right now I am super <br />
+    excited about a recipe I found- Stanley Tucci inspired Pasta Fagioli Soup. It is the <br />
+    perfect recipe for a snowy winter day. It is warm, comforting and hearty, my family cannot <br />
+    get enough of it. </div>
+    <br clear = "all" />
+  </p>
+
+  
+  <h2>Favorite Books:</h2>
+    <p><table border="1" cellpadding="4" cellspacing="0">
+      <tr>
+        <th>Name</th>
+        <th>Image</th>
+        <th>Author</th>
+        <th>Summary</th>
+      </tr>
+
+      <tr>
+        <td>The Alchemist</td>
+        <td><img src='the_alchemist.jpg' width ='150'></td>
+        <td>Paulo Coelho</td>
+        <td>A shepherd named Santiago begins a journey in search of treasure. Through his hardships <br />
+            and introspection, Santiago discovers that the real treasure is how he changed on the <br />
+            journey and his newfound perspective on life.</td>
+      </tr>
+
+      <tr>
+        <td>The Hunger Games</td>
+        <td><img src='thg.jpg' width ='150'></td>
+        <td>Suzanne Collins</td>
+        <td>In a dystopian reality, Katniss Evergreen is one of 26 from the 13 districts surrounding <br />
+            the Capital forced into a televised fight to the death. During this event, Katniss becomes <br />
+            a symbol of rebellion against a ruthless government.</td>
+      </tr>
+
+      <tr>
+        <td>Fahrenheit 451</td>
+        <td><img src='f451.jpg' width ='150'></td>
+        <td>Ray Bradbury</td>
+        <td>A dystopian novel set in the future where books are burned and independent thought is dangerous. <br />
+            A fireman, named Guy Montag meets a free thinking woman, Clarisse, and dangerously begins to <br />
+            question the world in search of the truth.</td>
+      </tr>
+
+      <tr>
+        <td>The Odyssey</td>
+        <td><img src='odyssey.jpg' width ='150'></td>
+        <td>Homer</td>
+        <td>After the Trojan war, Odysseus embarks on a journey to return home. Odysseus overcomes <br />
+            monsters, gods, and temptations while struggling to return home, where he has to fight to <br />
+            reclaim his kingdom and family.</td>
+      </tr>
+    </table>
+  </p>
+
+  
+  <h2>Guest Book:</h2>
+    <p><form action = '#' method='get'>
+      <div class = field> <label>First Name:</label><input type="text" name='first_name' id='first_name'> </div>
+      <div class = field><label>Last Name:</label><input type="text" name='last_name' id='last_name'> </div>
+      <div class = field><label>Email:</label><input type="text" name='email' id='user_email'> </div>
+      <div class = field><label>City:</label><input type="text" name='city' id='user_city'> </div>
+      <div class = field><label>State:</label>
+        <select name="user_state">
+        <option value="new_jersey">New Jersey</option>
+        <option value="new_york">New York</option>
+        <option value="pennsylvania">Pennsylvania</option>
+        <option value="delaware">Delaware</option>
+        <option value="connecticut">Connecticut</option>
+        <option value="maryland">Maryland</option></select>
+        </div>
+      <input type="submit" value="Submit">
+    </form>
+  </p>
+
+</body>
+
+</html>

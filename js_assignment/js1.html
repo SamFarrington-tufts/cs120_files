@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <style type = "text/css">
+        body{font-family: 'Roboto', sans-serif;}
+    </style>
+    <meta charset="utf-8">
+    <title>Problem 1</title>
+</head>
+
+<body>
+    <h1>Problem 1</h1>
+    
+    <script>
+        firstName = prompt("Enter your first name:");
+        lastName = prompt("Enter your last name:");
+        alert("Your name is " + firstName + " " + lastName);
+
+        numChildren = prompt("How many childrent do you have?");
+
+        if(numChildren == 0){
+            document.write("You have no children");
+        } else if(numChildren == 1){
+            document.write("You have 1 child");
+        }else{
+            document.write("You have " + numChildren + " children");
+        }
+    </script>
+
+
+</body>
+</html>
