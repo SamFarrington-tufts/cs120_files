@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <meta charset="utf-8">
+    <title>Project 2: Wordle</title>
+
+    <script>
+
+        // No longer used. This was the original dictonary before implementing
+        // the random word api
+        let dictonary = ["APPLE", "ARIEL", "ATOMS", 
+                        "BANDS", "BREAK", "BAKER",
+                        "CAGES", "CAMEL", "CAKES",
+                        "DAILY", "DAISY", "DATES",
+                        "EAGLE", "EATER", "ELBOW",
+                        "FACTS", "FATAL", "FEELS",
+                        "GAMES", "GATES", "GOOFY",
+                        "HABIT", "HAIRY", "HOVER",
+                        "IDEAS", "INBOX", "ISLES",
+                        "JUICE", "JUROR", "JOINT",
+                        "KNEED", "KARMA", "KAYAK",
+                        "LABEL", "LAUGH", "LEAKY"];
+
+        // Found on stack overflow, uses Math.random() to generate a random number
+        // and multiplies it by the dictonary length to randomly select
+        // a word from the dictonary
+        //let game_answer = dictonary[Math.floor(Math.random() * dictonary.length)];
+        //console.log("The answer is: " + game_answer);
+
+
+        // EXTRA CREDIT, GETS A RANDOM 5 LETTER WORD
+        function getRandomWord(){
+            var url = "https://random-word-api.herokuapp.com/word?length=5";
+            
+            //Sends a GET request
+            var req = new XMLHttpRequest();
+            req.open("GET", url, true);
+
+            req.onreadystatechange = function() {
+                //only works if the request is complete and the file has loaded
+                if(req.readyState == 4 && req.status == 200){
+                    // Parses the JSON file to get the random word
+                    var parsedJSON = JSON.parse(this.responseText);
+                    game_answer = parsedJSON[0].toUpperCase();
+                    console.log("The answer is: " + game_answer);       
+                }
+            };
+
+            req.send();
+        }
+        
+        
+         // Setting the rows and cols of the wordle game and creating a tracking
+        // variable to keep the current row
+        var rows = 6;
+        var cols = 5;
+        let curRow = 0;        
+
+        class Board{
+            createBoard(boardID, rows, cols){
+                this.rows = rows;
+                this.cols = cols;
+                this.boardObj = document.getElementById(boardID);
+
+                // Creates a blank board and a div for every cell in the board
+                // to allow cell accessing later
+                this.boardObj.innerHTML = "";
+                for(let r = 0; r < rows; r++){
+                    for(let c = 0; c < cols; c++){
+                        var cell = document.createElement("div");
+                        cell.className = `cell r${r}c${c}`;
+                        this.boardObj.append(cell);
+                    }
+                }
+            }
+        }
+
+        function createKB(){
+            // Creates and populates the visible keyboard on the screen
+            let kbRows = ["QWERTYUIOP", "ASDFGHJKL", "ZXCVBNM"];
+            let keyboard = document.getElementById("keyboard")
+            kbRows.forEach((kRow) => {
+                let rowDiv = document.createElement("div");
+                rowDiv.className = "kb_row";
+
+                kRow.split("").forEach((c) =>{
+                    let key = document.createElement("div");
+                    key.className = "key";
+                    key.textContent = c;
+                    key.id = `key_${c}`;
+                    rowDiv.append(key);
+                });
+                keyboard.append(rowDiv);
+            });
+        }
+
+        function checkGuess(guess, answer){
+            // Sets the guess and answer to uppercase
+            guess = guess.toUpperCase();
+            answer = answer.toUpperCase();
+
+            // Creates an object to hold the character counts in a word and
+            // an array to hold the result of each letters status
+            let result = Array(cols).fill("");
+            let counts = {};
+
+            // Loops through the answer and initializes each letter in the answer
+            // in the counts array
+            for(let i = 0; i < answer.length; i++){
+                let c = answer[i];
+
+                if(counts[c]){
+                    counts[c] += 1;
+                } else{
+                    counts[c] = 1;
+                }
+            }
+
+            // Loops through and marks the correct letters in the guess,
+            // otherwise increments the counts array for the second loop
+            for(let i = 0; i < guess.length; i++){
+                if(guess[i] == answer[i]){
+                    result[i] = "correct";
+                    counts[guess[i]]--;
+                }
+            }
+
+            // Second loop to mark letters as present or incorrect. Uses the
+            // results array to determine if a letter in the guess is present
+            // in the answer
+            for(let i = 0; i < guess.length; i++){
+                if(result[i] == "correct"){
+                    continue;
+                }
+                let c = guess[i];
+                if(counts[c] > 0){
+                    result[i] = "present";
+                    counts[c]--;
+                } else{
+                    result[i] = "incorrect";
+                }
+            }
+
+            return result;
+        }
+
+        // Uses the results array returned from checkGuess and adds
+        // an appropriate class to each letter in the row
+        function colorRow(result){
+            for(let c = 0; c < cols; c++){
+                let cell = document.querySelector(`.r${curRow}c${c}`);
+                cell.classList.add(result[c]);
+            }
+        }
+
+        function colorKB(guess, result){
+            for(let i = 0; i < cols; i++){
+                let letter = guess[i];
+                let status = result[i];
+                let curKey = document.getElementById(`key_${letter}`);
+
+                // If the letter was correctly guessed or was present, dont
+                // downgrade the status on the keyboard after guesses
+                if(curKey.classList.contains("correct")){continue;}
+                if(curKey.classList.contains("present") && status == "incorrect"){continue;}
+
+                // removes previous classes to allow a letter to be upgraded on the keyboard
+                curKey.classList.remove("correct", "present", "incorrect");
+                curKey.classList.add(status);
+            }
+        }
+
+        // Displays a popup to the user and everything except the board and the resart button
+        function endGame(message){
+            alert(message);
+            document.getElementById("keyboard").style.display = "none";
+            document.getElementById("userGuess").style.display = "none";
+            document.getElementById("guessBtn").style.display = "none";
+            document.getElementById("guessBtn").disabled = true;
+            document.getElementById("restartBtn").style.visibility = "visible";
+        }
+
+        // Clears the inner html of the board and keyboard and rebuilds it, while also
+        // reseting the display and visibility settings
+        function restartGame(boardObj){
+            curRow = 0;
+            
+            /* No longer used due to extra credit API task
+            game_answer = dictonary[Math.floor(Math.random() * dictonary.length)];
+            console.log("The answer is: " + game_answer);
+            */
+
+            getRandomWord();
+
+            document.getElementById("board").innerHTML = "";
+            document.getElementById("keyboard").innerHTML = "";
+
+            boardObj.createBoard("board", rows, cols);
+            createKB();
+
+            document.getElementById("keyboard").style.display = "block";
+            document.getElementById("userGuess").style.display = "inline-block";
+            document.getElementById("guessBtn").style.display = "inline-block";
+            document.getElementById("guessBtn").disabled = false;
+            document.getElementById("restartBtn").style.visibility = "hidden";
+        }
+
+        /* TEST
+        let test_answer = "PLANT";
+        console.log(checkGuess("APPLE", test_answer));
+        console.log(checkGuess("PLANT", test_answer));
+        console.log(checkGuess("XXXXX", test_answer));
+        console.log(checkGuess("TNLPA", test_answer));
+        */
+
+        window.onload = () => {
+            // Initalizes a board and stores it in a board variable
+            let board = new Board();
+            board.createBoard("board", rows, cols);
+            createKB();
+            getRandomWord();
+            
+            /* TEST  
+            let test = "APPLE";
+            // Fills in the current row with the user's guess
+            for(let c = 0; c < cols; c++){
+                let cell = document.querySelector(`.r0c${c}`);
+                cell.textContent = test[c];
+            } 
+            */
+
+            document.getElementById("guessBtn").addEventListener("click", () => {
+                let inputBox = document.getElementById("userGuess");
+                let input = inputBox.value.toUpperCase();
+
+                // Guess len check
+                if(input.length != cols){
+                    alert("The guess provided is not 5 characters");
+                    return;
+                }
+
+                // Fills in the current row with the user's guess
+                for(let c = 0; c < cols; c++){
+                    let cell = document.querySelector(`.r${curRow}c${c}`);
+                    cell.textContent = input[c];
+                }
+
+                // TEST: console.log(checkGuess(input, game_answer));
+                let result = checkGuess(input, game_answer);
+                colorRow(result);
+                colorKB(input, result);
+
+                // Pop up and ends game if the user guesses the word
+                if(input === game_answer){
+                    endGame("Congratulations! You've Won!"); 
+                    inputBox.value = "";
+                    return;
+                }
+
+                // Updates the curRow and clears the input box after every guess
+                curRow++;
+                inputBox.value = "";
+
+                // Ends the game if all guesses are used
+                if(curRow === rows){
+                    endGame("Out of Guesses! The answer was: " + game_answer); 
+                    return;
+                }
+            });
+
+            document.getElementById("restartBtn").addEventListener("click", () => restartGame(board));
+        }
+
+    </script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <h1>Project 2: Wordle</h1>
+
+        <div id="board"></div>
+        <input type="text" id="userGuess" placeholder="Enter a 5 Letter Guess" maxlength="5">
+        <input type="button" value="Check My Guess" id="guessBtn">
+        <div id="keyboard"></div>
+        <input type="button" value="Restart" id="restartBtn" style = "visibility: hidden;">
+    </div>
+</body>
+</html>

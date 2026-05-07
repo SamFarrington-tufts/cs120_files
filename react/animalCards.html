@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<title>Animal Flashcards</title>
+<style type="text/css">
+    button{
+        margin: 10px;
+        font-size: 20px;
+        padding: 8px;
+    }
+
+    button:hover{
+        background-color: #000000;
+        color: #ffffff;
+    }
+    
+</style>
+</head>
+
+<body>
+    <div id="flashcards"></div>
+
+    <script type="text/babel">
+       
+       function makeSound(animal, sound){
+            alert(`The ${animal} says ${sound}`);
+       }
+
+       // Creates buttons with onClick functions that pass an animal name and sound to the
+       // make sound function
+       var animalButtons = 
+        <div>
+            <h1>Animal Flashcards</h1>
+            <button onClick = {() => makeSound("dog", "woof")}> Dog </button>
+            <button onClick = {() => makeSound("cat", "meow")}> Cat </button>
+            <button onClick = {() => makeSound("duck", "quack")}> Duck </button>
+            <button onClick = {() => makeSound("cow", "moo")}> Cow </button>
+        </div>
+
+        ReactDOM.render(animalButtons, flashcards);
+
+    </script>
+</body>

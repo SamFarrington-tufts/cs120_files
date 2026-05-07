@@ -1,0 +1,48 @@
+@charset "utf-8";
+
+/*Black background for the nav bar/header with a fixed size to be used on all pages*/
+/*Formats the nav bar to be in a single horizontal line across the top of the page*/
+body{font-family: 'Roboto', sans-serif; margin: 0;}
+#nav {background-color: #053501; padding: 10px; font-size: 25px;}
+#nav ul{list-style: none; padding: 2px 10px;}
+#nav ul li{display: inline-block; vertical-align: middle;}
+#nav ul li a{color: #ffffff; text-decoration: none; padding:2px 15px}
+#nav ul li a:hover{text-decoration: underline;}
+#nav ul li.logo img{height: 75px; width: auto; display: block;}
+#nav ul li.logo a{padding: 0; display: inline-block; line-height: 0; margin: 0 10px;}
+
+/*Background for footer*/
+#footer{background-color: #053501; color: #ffffff; padding: 20px 20px;
+        text-align: center; font-size: 16px; margin-top: auto;}
+/*footer header size*/
+#footer h3{font-size: 24px;}
+/*Puts email and phone links on their own line with spacing*/
+#footer a{color: #ffffff; text-decoration: none; display: block; padding: 10px 14px; margin: 4px;}
+/*Spacing between footer items*/
+#footer p{margin: 14px 0;}
+/*Underlines phone and email when hovering over them*/
+#footer a:hover{text-decoration: underline;}
+
+/*Found on StackOverflow, makes sure footer always sits on bottom of page*/
+body, html{min-height: 100%;}
+body{min-height: 100vh; margin: 0; display: flex; flex-direction: column;}
+#wrap{flex: 1; display: flex; flex-direction: column; min-height: 100vh;}
+
+/*Creates a hamburger dropdown nav menu when the window size is small enough
+  to prevent the original nav bar from stacking on itself*/
+.hamburger_icon span{height: 3px; width: 40px; background-color: #ffffff; 
+                     display: block; margin-bottom: 7px;}
+#mobile_nav{display: none;}
+#mobile_menu{display: none;}
+@media(max-width: 830px){
+    #nav{display: none;}
+    #mobile_menu{display: block; position: relative; background-color:#053501;
+                padding: 24px 30px;}
+    #mobile_menu:hover #mobile_nav{display: block;}
+    #mobile_nav a{text-decoration: none;}
+    #mobile_nav a:hover{text-decoration: underline; background-color: #888787;}
+    #mobile_nav{position: absolute; left: 10px; top: 100%; background-color: #ffffff;
+                width: 150px; padding: 12px 0;}
+    #mobile_nav ul{list-style: none; margin: 0; padding: 0;}
+    #mobile_nav ul li a{display: block; padding: 10px 16px; color: #000000; text-decoration: none;}
+}

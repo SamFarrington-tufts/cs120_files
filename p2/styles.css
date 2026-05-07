@@ -1,0 +1,121 @@
+/*Font for everything, centers everything inside vertically and horizontally,
+  adds a background image*/
+body{
+    font-family: 'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-image: url(background.jpg);
+    background-size: cover;
+    }
+
+body h1{
+    margin: 30px;
+    font-size: 50px;
+}
+
+/*Centers everything on the page and sets a max width*/
+#wrapper{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    background-color: #ffffff;
+    padding: 25px;
+    width: 700px;
+    min-width: 600px;
+}
+
+/*Creates a 5x6 grid with 10px gaps*/
+#board{
+    display: grid;
+    grid-template-columns: repeat(5, 70px);
+    grid-template-rows: repeat(6, 70px);
+    gap: 10px;
+    margin: 12px 0;
+    justify-content: center;
+}
+
+/*Sets boarders around every cell, centers the letters in the cell,
+    sets font size and weight*/
+.cell{
+    border: 2px solid #000000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    font-weight: 600;
+}
+
+#userGuess{
+    font-size: 20px;
+    display: inline-block;
+    margin-top: 15px;
+}
+
+#guessBtn{
+    font-size: 20px;
+    display: inline-block;
+}
+
+/*adds a hover effect to the guess button*/
+#guessBtn:hover{
+    color: #ffffff;
+    background-color: #000000;
+}
+
+/*adds a margin above the keyboard*/
+#keyboard{
+    margin-top: 30px;
+    display: block;
+}
+
+/*centers the rows in the screen, sets max width, and adds 
+    spacing between rows of keys*/
+.kb_row{
+    display: block;
+    max-width: 600px;
+    margin: 0 auto 12px;
+}
+
+/*Puts keys in each row adjacent to eachother, sets an outline, 
+sets font size and weight, sets padding and margin of each key*/
+.key{
+    display: inline-block;
+    border: 1px solid #000000;
+    padding: 10px;
+    font-size: 22px;
+    font-weight: 500;
+    margin: 0 5px;
+}
+
+.correct{
+    background-color: #249900;
+    color: #ffffff;
+}
+
+.present{
+    background-color: #d8cc21;
+    color: #ffffff;
+}
+
+.incorrect{
+    background-color: #666565;
+    color: #ffffff;
+}
+
+/*Centers and styles the resart button*/
+#restartBtn{
+    font-size: 30px;
+    margin: 0 auto;
+    width: 340px;
+    padding: 10px;
+    margin: 30px 0;
+}
+
+/*Hover effect for the resart button*/
+#restartBtn:hover{
+    color: #ffffff;
+    background-color: #000000;
+}
+

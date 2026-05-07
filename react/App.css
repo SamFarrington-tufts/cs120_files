@@ -1,0 +1,39 @@
+.wrap{
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*Centers the app on the page (only vertically)*/
+.app{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/*Creates a 3x3 grid*/
+.grid{
+    display: grid;
+    grid-template-columns: repeat(3, 80px);
+    gap: 10px;
+    justify-content: center;
+}
+
+/*Sets size, color, and centers the numbers inside the blocks*/
+.block{
+    width: 80px;
+    height: 80px;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+}
+
+/*Uses !important to override coloring rules to implement the hover effect:
+  white background with black font color*/
+.block:hover{
+  background-color: #ffffff !important;
+  color: #000000;
+}

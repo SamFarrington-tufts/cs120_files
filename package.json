@@ -1,0 +1,22 @@
+{
+  "name": "nodejsapp",
+  "version": "1.0.0",
+  "description": "node app2 ",
+  "main": "app2.js",
+  "scripts": {
+    "start": "node app2.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+  "dependencies": {
+    "mongodb": "4.1"
+  }
+}
